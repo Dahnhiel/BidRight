@@ -1,24 +1,25 @@
 import Button from "../components/Button";
 import TrustBadges from "../components/TrustBadges";
+import heroBg from "../assets/hero.jpg";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-[#0F2460] via-[#1E3A8A] to-[#1d4ed8] overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
+    <section className="relative overflow-hidden">
+      {/* ── Background image + overlay ── */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover object-center"
         />
+        {/* Dark navy gradient overlay — keeps text crisp over any image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0F2460]/90 via-[#1E3A8A]/85 to-[#1d4ed8]/80" />
       </div>
 
-      {/* Decorative blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#2563EB] rounded-full opacity-20 translate-x-1/3 -translate-y-1/3" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F59E0B] rounded-full opacity-10 -translate-x-1/3 translate-y-1/3" />
+      {/* ── Decorative amber blob (bottom-left) ── */}
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F59E0B] rounded-full opacity-10 -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
+      {/* ── Content ── */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="max-w-3xl">
           {/* Eyebrow badge */}
@@ -36,7 +37,7 @@ export default function Hero() {
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-blue-200 leading-relaxed mb-10 max-w-2xl">
             BidRight helps UK tradespeople and small businesses find, understand,
-            and bid for government tenders, from first enquiry to final submission.
+            and bid for government tenders — from first enquiry to final submission.
           </p>
 
           {/* CTA buttons */}
@@ -44,7 +45,12 @@ export default function Hero() {
             <Button to="/contact" variant="primary" size="lg">
               Find Your First Contract
             </Button>
-            <Button to="/how-it-works" variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-[#1E3A8A]">
+            <Button
+              to="/how-it-works"
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-[#1E3A8A]"
+            >
               See How It Works
             </Button>
           </div>
@@ -57,7 +63,9 @@ export default function Hero() {
               { stat: "24hr", label: "Average response time" },
             ].map(({ stat, label }) => (
               <div key={label}>
-                <p className="font-['Poppins'] text-2xl sm:text-3xl font-bold text-[#F59E0B]">{stat}</p>
+                <p className="font-['Poppins'] text-2xl sm:text-3xl font-bold text-[#F59E0B]">
+                  {stat}
+                </p>
                 <p className="text-xs sm:text-sm text-blue-200 mt-1 leading-snug">{label}</p>
               </div>
             ))}
@@ -65,7 +73,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Trust badges strip */}
+      {/* ── Trust badges strip ── */}
       <div className="relative border-t border-white/10 bg-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <TrustBadges className="[&_span]:text-blue-300 [&_span.text-\[\#2563EB\]]:text-[#F59E0B]" />

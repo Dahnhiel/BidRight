@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../assets/bidrightlogo.png";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -33,12 +34,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 bg-[#1E3A8A] rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-base leading-none">B</span>
-          </div>
-          <span className="text-[#1E3A8A] font-bold text-xl tracking-tight font-['Poppins']">
-            Bid<span className="text-[#F59E0B]">Right</span>
-          </span>
+          <img src={Logo} alt="BidRight Logo" className="w-auto h-9" />
         </Link>
 
         {/* Desktop nav links */}

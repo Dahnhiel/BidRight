@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "../assets/bidrightlogo.png";
 
 const QUICK_LINKS = [
   { label: "Home", to: "/" },
@@ -26,12 +27,9 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-[#F59E0B] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-base">B</span>
+              <div className="bg-white">
+                <img src={Logo} alt="BidRight Logo" className="w-auto h-9" />
               </div>
-              <span className="text-white font-bold text-xl tracking-tight font-['Poppins']">
-                Bid<span className="text-[#F59E0B]">Right</span>
-              </span>
             </Link>
             <p className="text-blue-200 text-sm leading-relaxed max-w-xs">
               Helping UK tradespeople and small businesses find, understand, and
@@ -109,7 +107,9 @@ export default function Footer() {
               Contact
             </h3>
             <p className="text-sm text-blue-200">hello@bidright.co.uk</p>
-            <p className="text-sm text-blue-200 mt-1">Response within 24 hours</p>
+            <p className="text-sm text-blue-200 mt-1">
+              Response within 24 hours
+            </p>
           </div>
         </div>
       </div>
@@ -121,7 +121,8 @@ export default function Footer() {
             © {year} BidRight · A BuildWithBlaq Service. All rights reserved.
           </p>
           <p className="text-xs text-blue-400">
-            BidRight is a consultancy service. We do not guarantee contract award and are not affiliated with any government body.
+            BidRight is a consultancy service. We do not guarantee contract
+            award and are not affiliated with any government body.
           </p>
         </div>
       </div>
@@ -139,8 +140,18 @@ function WhatsAppIcon({ className }) {
 
 function MailIcon({ className }) {
   return (
-    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    <svg
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+      />
     </svg>
   );
 }
