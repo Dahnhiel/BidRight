@@ -168,22 +168,34 @@ function CheckCell({ value }) {
 export default function ServicesPage() {
   return (
     <div className="font-inter">
-      {/* ── Page Hero ── */}
-      <section className="bg-gradient-to-br from-[#1E3A8A] to-[#1e40af] text-white py-24 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block bg-white/10 border border-white/20 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            Our Services
-          </span>
-          <h1 className="font-poppins text-4xl md:text-5xl font-extrabold leading-tight mb-5">
-            From Finding Tenders to Winning Them
-          </h1>
-          <p className="text-blue-100 text-lg leading-relaxed max-w-2xl mx-auto">
-            Pick the level of support that fits where you are. Whether you just
-            need a starting point or want someone in your corner from search to
-            submission — we've got a service for that.
-          </p>
+        
+      {/* Page Hero  */}
+      <section className="bg-[#1E3A8A] py-20 lg:py-28 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#2563EB] rounded-full opacity-20 translate-x-1/3 -translate-y-1/3" />
 
-          <div className="flex flex-wrap justify-center gap-3 mt-10">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-[#F59E0B] text-sm font-semibold uppercase tracking-widest mb-4">
+              Our Services
+            </p>
+            <h1 className="font-['Poppins'] text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              From Finding Tenders to Winning Them
+            </h1>
+            <p className="text-blue-200 text-lg leading-relaxed">
+              Pick the level of support that fits where you are. Whether you
+              just need a starting point or want someone in your corner from
+              search to submission, we've got a service for that.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3 mt-10">
             {services.map((s) => (
               <a
                 key={s.id}
@@ -197,7 +209,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── Service Cards Grid ── */}
+      {/* Service Grid */}
       <section className="py-20 px-4 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

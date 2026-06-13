@@ -28,10 +28,7 @@ const plans = [
       "Plain-English summary per opportunity",
       "Contract value, deadline & buyer details included",
     ],
-    notIncluded: [
-      "Document preparation",
-      "Bid writing or submission support",
-    ],
+    notIncluded: ["Document preparation", "Bid writing or submission support"],
     cta: "Get a Tender Search",
     color: "slate",
   },
@@ -220,15 +217,18 @@ function PricingCard({ plan }) {
           </p>
           <ul className="space-y-2.5 mb-5">
             {plan.includes.map((item, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-sm text-slate-700">
+              <li
+                key={i}
+                className="flex items-start gap-2.5 text-sm text-slate-700"
+              >
                 <CheckCircle
                   size={15}
                   className={`mt-0.5 shrink-0 ${
                     plan.color === "amber"
                       ? "text-amber-500"
                       : plan.color === "blue"
-                      ? "text-blue-500"
-                      : "text-slate-400"
+                        ? "text-blue-500"
+                        : "text-slate-400"
                   }`}
                 />
                 {item}
@@ -307,9 +307,8 @@ export default function PricingPage() {
 
   return (
     <div className="font-inter">
-
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-[#1E3A8A] to-[#1e40af] text-white py-24 px-4 text-center">
+      {/* <section className="bg-gradient-to-br from-[#1E3A8A] to-[#1e40af] text-white py-24 px-4 text-center">
         <div className="max-w-2xl mx-auto">
           <span className="inline-block bg-white/10 border border-white/20 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             Pricing
@@ -320,6 +319,33 @@ export default function PricingPage() {
           <p className="text-blue-100 text-lg leading-relaxed">
             Public procurement already has enough complexity, your consultant's pricing shouldn't add to it. Pick a tier, know what you're getting, and let's get started.
           </p>
+        </div>
+      </section> */}
+
+      <section className="bg-[#1E3A8A] py-20 lg:py-28 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#2563EB] rounded-full opacity-20 translate-x-1/3 -translate-y-1/3" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-[#F59E0B] text-sm font-semibold uppercase tracking-widest mb-4">
+              Pricing
+            </p>
+            <h1 className="font-['Poppins'] text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              Clear Prices. No Surprises.
+            </h1>
+            <p className="text-blue-200 text-lg leading-relaxed">
+              Public procurement already has enough complexity, your
+              consultant's pricing shouldn't add to it. Pick a tier, know what
+              you're getting, and let's get started.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -340,7 +366,10 @@ export default function PricingPage() {
               "No percentage of contract value taken",
               "No hidden add-ons",
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-slate-500">
+              <div
+                key={i}
+                className="flex items-center gap-2 text-sm text-slate-500"
+              >
                 <CheckCircle size={14} className="text-blue-400 shrink-0" />
                 {item}
               </div>
@@ -361,13 +390,21 @@ export default function PricingPage() {
                 </h3>
                 <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
                   <p>
-                    BidRight operates on a <strong>per-tender, pay-as-you-go</strong> model. There are no monthly retainers, no onboarding fees, and no percentage taken from your contract value if you win.
+                    BidRight operates on a{" "}
+                    <strong>per-tender, pay-as-you-go</strong> model. There are
+                    no monthly retainers, no onboarding fees, and no percentage
+                    taken from your contract value if you win.
                   </p>
                   <p>
-                    You pay for the specific service you need, when you need it. If you want to run three tenders in a month, you pay three times. If you're quiet for two months, you pay nothing.
+                    You pay for the specific service you need, when you need it.
+                    If you want to run three tenders in a month, you pay three
+                    times. If you're quiet for two months, you pay nothing.
                   </p>
                   <p>
-                    Payment is requested upfront before work begins, via bank transfer or other agreed method. For DPS / Framework registration, pricing is quoted based on the complexity of the application.
+                    Payment is requested upfront before work begins, via bank
+                    transfer or other agreed method. For DPS / Framework
+                    registration, pricing is quoted based on the complexity of
+                    the application.
                   </p>
                 </div>
               </div>
@@ -420,7 +457,9 @@ export default function PricingPage() {
             Still not sure which to pick?
           </h3>
           <p className="text-slate-500 text-sm mb-7 leading-relaxed">
-            Message us on WhatsApp with your trade and a rough idea of the contracts you want to target. We'll tell you honestly which tier makes sense for your situation.
+            Message us on WhatsApp with your trade and a rough idea of the
+            contracts you want to target. We'll tell you honestly which tier
+            makes sense for your situation.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a

@@ -23,7 +23,8 @@ const steps = [
     summary: "Tell us your trade and region, we do the searching.",
     body: "Most public sector contracts are published across multiple portals: Find a Tender Service, Contracts Finder, regional council procurement hubs, NHS Supply Chain, and more. We monitor all of them so you don't have to. Once we know your trade category and location, we surface live, relevant opportunities matched to what your business actually does, filtered by contract value, deadline, and buyer type.",
     timeframe: "Delivered within 48 hours",
-    outcome: "A shortlist of relevant live tenders with plain-English summaries",
+    outcome:
+      "A shortlist of relevant live tenders with plain-English summaries",
     color: "blue",
   },
   {
@@ -33,7 +34,8 @@ const steps = [
     summary: "No jargon. We tell you exactly what the buyer wants.",
     body: "Tender documents can run to 40+ pages of specification, compliance requirements, and scoring criteria. We read through all of it and break it down into plain English, what the buyer is actually looking for, what documents you'll need to provide, how bids are scored, and whether your business is eligible to apply. You'll know exactly what you're getting into before committing.",
     timeframe: "Included with Tender Pack & Full Bid Support",
-    outcome: "A clear breakdown of requirements, scoring criteria, and eligibility",
+    outcome:
+      "A clear breakdown of requirements, scoring criteria, and eligibility",
     color: "blue",
   },
   {
@@ -43,7 +45,8 @@ const steps = [
     summary: "Documents written, forms completed, pricing structured.",
     body: "This is where we do the heavy lifting. Depending on your service tier, we prepare method statements tailored to your trade, complete pricing schedules and compliance forms, and structure your bid to address the buyer's scoring criteria directly. For Full Bid Support clients, we also advise on pricing strategy, making sure your numbers are competitive without cutting your margins too thin.",
     timeframe: "3–10 working days depending on complexity",
-    outcome: "A submission-ready bid pack, reviewed for compliance before it goes in",
+    outcome:
+      "A submission-ready bid pack, reviewed for compliance before it goes in",
     color: "amber",
   },
   {
@@ -112,7 +115,10 @@ function StepCard({ step, index }) {
             isAmber ? "bg-amber-100" : "bg-blue-100"
           }`}
         >
-          <Icon size={24} className={isAmber ? "text-amber-600" : "text-blue-600"} />
+          <Icon
+            size={24}
+            className={isAmber ? "text-amber-600" : "text-blue-600"}
+          />
         </div>
         <span
           className={`font-poppins text-6xl md:text-7xl font-extrabold leading-none md:mt-4 ${
@@ -141,7 +147,9 @@ function StepCard({ step, index }) {
         >
           {step.summary}
         </p>
-        <p className="text-slate-600 text-sm leading-relaxed mb-6">{step.body}</p>
+        <p className="text-slate-600 text-sm leading-relaxed mb-6">
+          {step.body}
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="flex items-start gap-2.5 bg-white rounded-xl border border-slate-100 p-3.5">
@@ -150,7 +158,9 @@ function StepCard({ step, index }) {
               <p className="text-xs text-slate-400 uppercase tracking-widest font-semibold mb-0.5">
                 Timeframe
               </p>
-              <p className="text-sm text-slate-700 font-medium">{step.timeframe}</p>
+              <p className="text-sm text-slate-700 font-medium">
+                {step.timeframe}
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-2.5 bg-white rounded-xl border border-slate-100 p-3.5">
@@ -162,7 +172,9 @@ function StepCard({ step, index }) {
               <p className="text-xs text-slate-400 uppercase tracking-widest font-semibold mb-0.5">
                 You get
               </p>
-              <p className="text-sm text-slate-700 font-medium">{step.outcome}</p>
+              <p className="text-sm text-slate-700 font-medium">
+                {step.outcome}
+              </p>
             </div>
           </div>
         </div>
@@ -207,19 +219,30 @@ export default function HowItWorksPage() {
 
   return (
     <div className="font-inter">
-
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-[#1E3A8A] to-[#1e40af] text-white py-24 px-4 text-center">
-        <div className="max-w-2xl mx-auto">
-          <span className="inline-block bg-white/10 border border-white/20 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-            The Process
-          </span>
-          <h1 className="font-poppins text-4xl md:text-5xl font-extrabold leading-tight mb-5">
-            How BidRight Works
-          </h1>
-          <p className="text-blue-100 text-lg leading-relaxed">
-            Four steps from not knowing where to start, to submitting a professional, competitive bid for a public sector contract.
-          </p>
+      <section className="bg-[#1E3A8A] py-20 lg:py-28 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#2563EB] rounded-full opacity-20 translate-x-1/3 -translate-y-1/3" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-[#F59E0B] text-sm font-semibold uppercase tracking-widest mb-4">
+              The Process
+            </p>
+            <h1 className="font-['Poppins'] text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              How BidRight Works
+            </h1>
+            <p className="text-blue-200 text-lg leading-relaxed">
+              Four steps from not knowing where to start, to submitting a
+              professional, competitive bid for a public sector contract.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -249,7 +272,11 @@ export default function HowItWorksPage() {
       <section className="py-20 px-4 bg-slate-50">
         <div className="max-w-4xl mx-auto space-y-12">
           {steps.map((step, i) => (
-            <div key={step.number} id={`step-${step.number}`} className="scroll-mt-24">
+            <div
+              key={step.number}
+              id={`step-${step.number}`}
+              className="scroll-mt-24"
+            >
               <StepCard step={step} index={i} />
               {i < steps.length - 1 && (
                 <div className="flex justify-center mt-8">
@@ -271,7 +298,11 @@ export default function HowItWorksPage() {
                 Contact us as early as possible
               </h4>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Tender deadlines are fixed, buyers never extend them. The earlier you get in touch after spotting an opportunity, the more time we have to prepare a strong bid. If a deadline is less than 5 working days away, message us immediately and we'll let you know if we can still help.
+                Tender deadlines are fixed, buyers never extend them. The
+                earlier you get in touch after spotting an opportunity, the more
+                time we have to prepare a strong bid. If a deadline is less than
+                5 working days away, message us immediately and we'll let you
+                know if we can still help.
               </p>
             </div>
           </div>
@@ -304,7 +335,12 @@ export default function HowItWorksPage() {
 
           <div className="bg-white rounded-2xl border border-slate-200 shadow-sm px-6">
             {faqs.map((item, i) => (
-              <FAQItem key={i} item={item} isOpen={openFaq === i} onToggle={() => toggle(i)} />
+              <FAQItem
+                key={i}
+                item={item}
+                isOpen={openFaq === i}
+                onToggle={() => toggle(i)}
+              />
             ))}
           </div>
         </div>
@@ -317,7 +353,9 @@ export default function HowItWorksPage() {
             Ready to find your first contract?
           </h3>
           <p className="text-slate-500 text-sm mb-7 leading-relaxed">
-            Tell us your trade and we'll search for what's currently live. A £45 Tender Search is the lowest-risk way to see what public sector opportunities exist for your business right now.
+            Tell us your trade and we'll search for what's currently live. A £45
+            Tender Search is the lowest-risk way to see what public sector
+            opportunities exist for your business right now.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
@@ -339,7 +377,6 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

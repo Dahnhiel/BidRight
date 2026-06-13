@@ -76,7 +76,6 @@ const initialForm = {
   message: "",
 };
 
-
 export default function ContactPage() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle");
@@ -123,7 +122,7 @@ export default function ContactPage() {
           trade: form.trade,
           message: form.message,
         },
-        EMAILJS_PUBLIC_KEY
+        EMAILJS_PUBLIC_KEY,
       );
       setStatus("success");
       setForm(initialForm);
@@ -140,9 +139,8 @@ export default function ContactPage() {
 
   return (
     <div className="font-inter">
-
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-[#1E3A8A] to-[#1e40af] text-white py-24 px-4 text-center">
+      {/* <section className="bg-gradient-to-br from-[#1E3A8A] to-[#1e40af] text-white py-24 px-4 text-center">
         <div className="max-w-2xl mx-auto">
           <span className="inline-block bg-white/10 border border-white/20 text-blue-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             Get in Touch
@@ -153,6 +151,32 @@ export default function ContactPage() {
           <p className="text-blue-100 text-lg leading-relaxed">
             Tell us your trade and what you're looking to win. We'll come back to you with honest advice on what's out there and how we can help.
           </p>
+        </div>
+      </section> */}
+
+      <section className="bg-[#1E3A8A] py-20 lg:py-28 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#2563EB] rounded-full opacity-20 translate-x-1/3 -translate-y-1/3" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-[#F59E0B] text-sm font-semibold uppercase tracking-widest mb-4">
+              Get in Touch
+            </p>
+            <h1 className="font-['Poppins'] text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              Let's Talk About Your Next Contract
+            </h1>
+            <p className="text-blue-200 text-lg leading-relaxed">
+              Tell us your trade and what you're looking to win. We'll come back
+              to you with honest advice on what's out there and how we can help.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -181,14 +205,18 @@ export default function ContactPage() {
                 key={method.label}
                 className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col gap-4 shadow-sm"
               >
-                <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${c.icon}`}>
+                <div
+                  className={`w-11 h-11 rounded-xl flex items-center justify-center ${c.icon}`}
+                >
                   <Icon size={20} />
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-0.5">
                     {method.label}
                   </p>
-                  <p className="text-sm text-slate-700 font-medium">{method.value}</p>
+                  <p className="text-sm text-slate-700 font-medium">
+                    {method.value}
+                  </p>
                 </div>
                 <a
                   href={method.href}
@@ -207,7 +235,6 @@ export default function ContactPage() {
       {/* ── Form + sidebar ── */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12">
-
           {/* Sidebar */}
           <div className="space-y-8">
             <div>
@@ -215,7 +242,8 @@ export default function ContactPage() {
                 Send Us a Message
               </h2>
               <p className="text-slate-500 text-sm leading-relaxed">
-                Fill in the form and we'll get back to you within one business day. For faster replies, WhatsApp is the best route.
+                Fill in the form and we'll get back to you within one business
+                day. For faster replies, WhatsApp is the best route.
               </p>
             </div>
 
@@ -234,7 +262,9 @@ export default function ContactPage() {
                   ["Email", "Within 1–2 business days"],
                 ].map(([channel, time]) => (
                   <li key={channel} className="flex justify-between gap-3">
-                    <span className="font-medium text-slate-700">{channel}</span>
+                    <span className="font-medium text-slate-700">
+                      {channel}
+                    </span>
                     <span className="text-slate-500 text-right">{time}</span>
                   </li>
                 ))}
@@ -243,7 +273,10 @@ export default function ContactPage() {
 
             {/* Disclaimer */}
             <p className="text-xs text-slate-400 leading-relaxed">
-              BidRight is an independent procurement consultancy. We are not affiliated with any government body, the Cabinet Office, or Crown Commercial Service. Services provided are consultancy and document preparation only, we do not guarantee contract awards.
+              BidRight is an independent procurement consultancy. We are not
+              affiliated with any government body, the Cabinet Office, or Crown
+              Commercial Service. Services provided are consultancy and document
+              preparation only, we do not guarantee contract awards.
             </p>
           </div>
 
@@ -258,7 +291,8 @@ export default function ContactPage() {
                   Message Sent!
                 </h3>
                 <p className="text-slate-500 text-sm max-w-xs leading-relaxed">
-                  Thanks for reaching out. We'll get back to you within one business day. For anything urgent, WhatsApp us directly.
+                  Thanks for reaching out. We'll get back to you within one
+                  business day. For anything urgent, WhatsApp us directly.
                 </p>
                 <a
                   href="https://wa.me/447700000000"
@@ -271,15 +305,26 @@ export default function ContactPage() {
                 </a>
               </div>
             ) : (
-              <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-5">
-
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                noValidate
+                className="space-y-5"
+              >
                 {/* Error banner */}
                 {status === "error" && (
                   <div className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4">
-                    <AlertCircle size={16} className="text-red-500 shrink-0 mt-0.5" />
+                    <AlertCircle
+                      size={16}
+                      className="text-red-500 shrink-0 mt-0.5"
+                    />
                     <p className="text-sm text-red-700">
-                      Something went wrong sending your message. Please try again, or{" "}
-                      <a href="https://wa.me/447700000000" className="underline font-medium">
+                      Something went wrong sending your message. Please try
+                      again, or{" "}
+                      <a
+                        href="https://wa.me/447700000000"
+                        className="underline font-medium"
+                      >
                         reach us on WhatsApp
                       </a>
                       .
@@ -302,7 +347,9 @@ export default function ContactPage() {
                       className={errors.from_name ? inputError : inputNormal}
                     />
                     {errors.from_name && (
-                      <p className="text-xs text-red-500 mt-1">{errors.from_name}</p>
+                      <p className="text-xs text-red-500 mt-1">
+                        {errors.from_name}
+                      </p>
                     )}
                   </div>
                   <div>
@@ -318,7 +365,9 @@ export default function ContactPage() {
                       className={errors.from_email ? inputError : inputNormal}
                     />
                     {errors.from_email && (
-                      <p className="text-xs text-red-500 mt-1">{errors.from_email}</p>
+                      <p className="text-xs text-red-500 mt-1">
+                        {errors.from_email}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -378,7 +427,9 @@ export default function ContactPage() {
                     className={`${errors.message ? inputError : inputNormal} resize-none`}
                   />
                   {errors.message && (
-                    <p className="text-xs text-red-500 mt-1">{errors.message}</p>
+                    <p className="text-xs text-red-500 mt-1">
+                      {errors.message}
+                    </p>
                   )}
                 </div>
 
@@ -390,9 +441,24 @@ export default function ContactPage() {
                 >
                   {status === "sending" ? (
                     <>
-                      <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                      <svg
+                        className="animate-spin w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8H4z"
+                        />
                       </svg>
                       Sending…
                     </>
@@ -405,7 +471,8 @@ export default function ContactPage() {
                 </button>
 
                 <p className="text-xs text-slate-400 text-center">
-                  Your details are used only to respond to your enquiry. We don't share your data with third parties.
+                  Your details are used only to respond to your enquiry. We
+                  don't share your data with third parties.
                 </p>
               </form>
             )}
